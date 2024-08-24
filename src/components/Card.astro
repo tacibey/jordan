@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+  image: ImageMetadata
+  title: string
+  description: string
+  link: string
+}
+
+const { image, title, description, link } = Astro.props
+---
+
+<article
+  class="relative w-80 sm:w-96 md:w-[25rem] lg:w-[28rem] 2xl:w-[30rem] h-full bg-white rounded-2xl overflow-clip group hover:shadow-lg hover:shadow-dark-blue/5 transition-shadow duration-300"
+>
+  <figure class="flex flex-col">
+    <div class="overflow-clip">
+      <Image
+        class="aspect-[5/3] w-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
+        src={image}
+        alt="Project"
+      />
+    </div>
+    <figcaption class="flex flex-col gap-4 p-6 lg:p-8">
+      <h3 class="text-dark-blue text-xl font-semibold">{title}</h3>
+      <p class="text-dark-gray">
+        {description}
+      </p>
+    </figcaption>
+  </figure>
+
+  <a class="absolute inset-0" href={link} target="_blank" title="View Project"
+  ></a>
+</article>

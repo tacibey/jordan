@@ -1,0 +1,65 @@
+---
+import TextReveal from '@/components/TextReveal.astro'
+---
+
+<section
+  data-skills
+  class="bg-dark-blue text-steel-blue py-40 lg:py-52 xl:py-60 px-8 sm:px-16 md:px-20 lg:px-24 xl:px-32"
+>
+  <ul
+    class="flex flex-wrap justify-center gap-x-8 gap-y-4 lg:gap-x-16 lg:gap-y-8"
+  >
+    <li>
+      <TextReveal
+        class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+        color="bg-gradient-to-r from-white to-white text-white/50"
+      >
+        JavaScript (ES6+)
+      </TextReveal>
+    </li>
+    <li>
+      <TextReveal
+        class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+        color="bg-gradient-to-r from-white to-white text-white/50"
+      >
+        HTML5 & CSS3
+      </TextReveal>
+    </li>
+    <li>
+      <TextReveal
+        class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+        color="bg-gradient-to-r from-white to-white text-white/50"
+      >
+        React.js & Astro.js
+      </TextReveal>
+    </li>
+    <li>
+      <TextReveal
+        class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+        color="bg-gradient-to-r from-white to-white text-white/50"
+      >
+        Responsive Design
+      </TextReveal>
+    </li>
+    <li>
+      <TextReveal
+        class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+        color="bg-gradient-to-r from-white to-white text-white/50"
+      >
+        UI/UX Principles
+      </TextReveal>
+    </li>
+  </ul>
+</section>
+
+<script>
+  import { DOMLoaded } from '@/ts/events'
+  import { fadeOut } from '@/ts/animations'
+
+  DOMLoaded(() => {
+    const trigger = document.querySelector('[data-skills]') as HTMLElement
+    const target = trigger.querySelector('ul') as HTMLElement
+
+    fadeOut(trigger, target)
+  })
+</script>

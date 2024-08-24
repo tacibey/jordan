@@ -1,0 +1,40 @@
+<section data-hero class="relative w-full h-screen bg-dark-blue text-white">
+  <div class="absolute inset-0 overflow-clip">
+    <video
+      data-hero-video
+      class="w-full h-full object-cover"
+      autoplay
+      muted
+      playsinline
+      loop
+    >
+      <source src="/images/hero-bg.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="absolute inset-0 bg-dark-blue/75"></div>
+</section>
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { DOMLoaded } from '@/ts/events'
+
+  DOMLoaded(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const hero = document.querySelector('[data-hero]') as HTMLElement
+    const heroVideo = document.querySelector(
+      '[data-hero-video]'
+    ) as HTMLVideoElement
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: hero,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    })
+
+    tl.to(heroVideo, { y: '50%', duration: 1 })
+  })
+</script>

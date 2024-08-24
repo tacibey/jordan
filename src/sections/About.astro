@@ -1,0 +1,29 @@
+---
+import TextReveal from '@/components/TextReveal.astro'
+---
+
+<section
+  data-about
+  class="bg-dark-blue text-steel-blue py-40 lg:py-52 xl:py-60 px-8"
+>
+  <TextReveal
+    class="text-3xl lg:text-4xl 2xl:text-5xl font-serif font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
+    color="bg-gradient-to-r from-white to-white text-white/50"
+  >
+    Hello, I'm Jordan Blake, a web developer specializing in crafting elegant
+    and efficient user interfaces. Explore my work below and discover how I
+    bring creativity to code.
+  </TextReveal>
+</section>
+
+<script>
+  import { DOMLoaded } from '../ts/events'
+  import { fadeOut } from '../ts/animations'
+
+  DOMLoaded(() => {
+    const trigger = document.querySelector('[data-about]') as HTMLElement
+    const target = trigger.querySelector('p') as HTMLElement
+
+    fadeOut(trigger, target)
+  })
+</script>

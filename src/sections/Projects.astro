@@ -1,0 +1,84 @@
+---
+import Card from '@/components/Card.astro'
+import projectOne from '@/images/project-1.png'
+import projectTwo from '@/images/project-2.png'
+import projectThree from '@/images/project-3.png'
+import projectFour from '@/images/project-4.png'
+---
+
+<section
+  data-projects
+  class="flex flex-col gap-10 lg:gap-12 py-32 lg:pb-40 2xl:py-48 px-8 overflow-clip"
+>
+  <h2
+    class="w-full max-w-2xl mx-auto text-dark-blue text-3xl lg:text-4xl 2xl:text-5xl text-center font-semibold"
+  >
+    Featured Projects
+  </h2>
+
+  <div data-projects-wrapper class="w-full max-w-2xl mx-auto">
+    <ul data-projects-list class="flex gap-8 lg:gap-16 w-max">
+      <li>
+        <Card
+          image={projectOne}
+          title="Free Astro Components"
+          description="A set of reusable components designed to boost developer productivity and ensure high-quality, flexible, and customizable code."
+          link="https://free-astro-components.vercel.app/"
+        />
+      </li>
+      <li>
+        <Card
+          image={projectTwo}
+          title="E-commerce Dashboard"
+          description="A custom-built dashboard offering real-time analytics, inventory management, and sales tracking, showcasing my expertise in creating complex, data-driven applications."
+          link="#"
+        />
+      </li>
+      <li>
+        <Card
+          image={projectThree}
+          title="Blog Platform"
+          description="A lightweight blog platform built with modern frameworks, highlighting my ability to create scalable, maintainable, and user-friendly web applications."
+          link="#"
+        />
+      </li>
+      <li>
+        <Card
+          image={projectFour}
+          title="Interactive Data Visualization"
+          description="A tool that turns complex datasets into intuitive charts and graphs, demonstrating my skill in data-driven visualization and user engagement."
+          link="#"
+        />
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { DOMLoaded } from '@/ts/events'
+
+  DOMLoaded(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const projects = document.querySelector('[data-projects]') as HTMLElement
+    const projectsWrapper = projects.querySelector(
+      '[data-projects-wrapper]'
+    ) as HTMLElement
+    const projectsList = projects.querySelector(
+      '[data-projects-list]'
+    ) as HTMLElement
+    const width = projectsList.clientWidth - projectsWrapper.clientWidth
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: projects,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        pin: true,
+      },
+    })
+
+    tl.fromTo(projectsList, { x: 0 }, { x: -width, duration: 1 })
+  })
+</script>

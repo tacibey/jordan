@@ -1,0 +1,40 @@
+<header
+  data-header
+  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none text-white z-20"
+>
+  <h1 class="text-center font-semibold whitespace-nowrap">Jordan Blake</h1>
+</header>
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { DOMLoaded } from '@/ts/events'
+
+  DOMLoaded(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const hero = document.querySelector('[data-hero]') as HTMLElement
+    const projects = document.querySelector('[data-projects]') as HTMLElement
+    const header = document.querySelector('[data-header]') as HTMLElement
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: hero,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    })
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: projects,
+        start: 'top 5%',
+        end: 'top -5%',
+        scrub: true,
+      },
+    })
+
+    tl.to(header, { fontSize: '1.5rem', top: '1.25rem', duration: 1 })
+
+    tl2.to(header, { color: '#022859', duration: 1 })
+  })
+</script>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  class?: string
+  color: string
+}
+
+const { class: className, color } = Astro.props
+---
+
+<p class:list={['scroll-text-reveal', className]}>
+  <span class={color}>
+    <slot />
+  </span>
+</p>
+
+<style is:global>
+  .scroll-text-reveal > span {
+    animation: scroll-reveal linear forwards;
+    animation-timeline: view(y);
+    animation-range-start: cover 10vh;
+    animation-range-end: cover 50vh;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-clip: text;
+  }
+
+  @keyframes scroll-reveal {
+    to {
+      background-size: 100% 100%;
+    }
+  }
+</style>
