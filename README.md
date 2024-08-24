@@ -67,3 +67,9 @@ Contributions are welcome. Submit a pull request or open an issue.
 ## License
 
 This project is open-source and available under the MIT License.
+
+## Thanks
+
+Thank you for checking out the Jordan Blake Portfolio! If you have any projects in mind or just want to say hello, feel free to reach out.
+
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >](https://buymeacoffee.com/denv) to support my work!
