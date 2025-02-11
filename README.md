@@ -3,6 +3,9 @@
 
 **Jordan Blake Portfolio** is a free template designed to showcase projects elegantly and efficiently. Built with [Astro.js](https://astro.build/), it's ideal for developers looking for a professional and easy-to-customize design.
 
+## Demo
+Demo site can be found at [website](https://jordan-blake.web.app/). 
+
 ## Features
 
 - **Free Template**: Completely free to use and customize.
