@@ -15,13 +15,65 @@ import TextReveal from '@/components/TextReveal.astro'
       <p class="text-lg">Yeni projeler ve fikirler için iletişime geçin.</p>
     </div>
 
-    <a
-      class="hover:text-white transition-colors duration-300 text-xl font-medium"
-      href="mailto:taciyalcin@gmail.com"
-      title="E-posta ile ulaşın"
+    <form
+      action="https://api.staticforms.xyz/submit"
+      method="POST"
+      class="flex flex-col gap-6"
     >
-      taciyalcin@gmail.com
-    </a>
+      <input type="hidden" name="apiKey" value="sf_ka3g7kdj68k7a31l5ad6m488" />
+      <input type="hidden" name="replyTo" value="@" />
+      <input
+        type="text"
+        name="honeypot"
+        style="display: none"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      <div class="flex flex-col">
+        <label for="name" class="text-steel-blue text-sm font-medium mb-2"
+          >İsim</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="company" class="text-steel-blue text-sm font-medium mb-2"
+          >Şirket</label
+        >
+        <input
+          type="text"
+          id="company"
+          name="$company"
+          class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="phone" class="text-steel-blue text-sm font-medium mb-2"
+          >Telefon</label
+        >
+        <input
+          type="tel"
+          id="phone"
+          name="$phone"
+          class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="bg-steel-blue text-dark-blue font-semibold py-3 px-6 rounded-md hover:bg-white transition-colors duration-300 self-start"
+      >
+        Gönder
+      </button>
+    </form>
   </div>
 </section>
 
