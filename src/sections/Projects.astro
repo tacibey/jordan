@@ -1,8 +1,9 @@
 ---
 import Card from '@/components/Card.astro'
 import projectOne from '@/images/project-1.png'
-import projectTwo from '@/images/project-2.png'
-import projectThree from '@/images/project-3.png'
+// IKEA ve Porsche resim importları artık kullanılmadığı için kaldırıldı.
+// import projectTwo from '@/images/project-2.png'
+// import projectThree from '@/images/project-3.png'
 ---
 
 <section
@@ -25,23 +26,7 @@ import projectThree from '@/images/project-3.png'
           link="https://krafferoasters.com/"
         />
       </li>
-      <li>
-        <Card
-          image={projectTwo}
-          title="IKEA"
-          description="IKEA'nın da tercihi Astro web altyapısı."
-          link="#"
-        />
-      </li>
-      <li>
-        <Card
-          image={projectThree}
-          title="Porsche.com.tr"
-          description="Porsche, yollarda olduğu gibi internette de hızlı."
-          link="#"
-        />
-      </li>
-    </ul>
+      </ul>
   </div>
 </section>
 
@@ -59,6 +44,13 @@ import projectThree from '@/images/project-3.png'
     const projectsList = projects.querySelector(
       '[data-projects-list]'
     ) as HTMLElement
+
+    // Tek bir öğe kaldığı için yatay kaydırma mantığını basitleştirebiliriz
+    // veya tamamen kaldırabiliriz, çünkü kaydırmaya gerek kalmayacak.
+    // Ancak, eğer ileride başka projeler eklemeyi düşünüyorsanız,
+    // aşağıdaki width hesaplamasını ve gsap animasyonunu olduğu gibi bırakmakta fayda var.
+    // Şimdilik, sadece bir eleman olduğu için animasyonun görsel etkisi olmayacaktır.
+
     const width = projectsList.clientWidth - projectsWrapper.clientWidth
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -70,6 +62,15 @@ import projectThree from '@/images/project-3.png'
       },
     })
 
-    tl.fromTo(projectsList, { x: 0 }, { x: -width, duration: 1 })
+    // width negatif veya sıfır olabilir, bu durumda animasyon gerçekleşmez.
+    // Bu, tek bir eleman için beklenen davranıştır.
+    if (width > 0) {
+        tl.fromTo(projectsList, { x: 0 }, { x: -width, duration: 1 })
+    } else {
+        // Eğer tek bir proje varsa ve kaydırma mantığına ihtiyaç yoksa,
+        // pin özelliğini kaldırabiliriz. Ancak mevcut tasarımda pin'li kalması
+        // section'ın sabit durmasını sağlayacaktır, bu da kötü bir şey değil.
+        // tl.kill(); // Animasyonu tamamen durdurmak isterseniz
+    }
   })
 </script>
