@@ -16,20 +16,10 @@ import TextReveal from '@/components/TextReveal.astro'
     </div>
 
     <form
-      action="https://api.staticforms.xyz/submit"
+      action="https://formspree.io/f/mldnegoj"
       method="POST"
       class="flex flex-col gap-6"
     >
-      <input type="hidden" name="apiKey" value="sf_ka3g7kdj68k7a31l5ad6m488" />
-      <input type="hidden" name="replyTo" value="@" />
-      <input
-        type="text"
-        name="honeypot"
-        style="display: none"
-        tabindex="-1"
-        autocomplete="off"
-      />
-
       <div class="flex flex-col">
         <label for="name" class="text-steel-blue text-sm font-medium mb-2"
           >İsim</label
@@ -37,7 +27,7 @@ import TextReveal from '@/components/TextReveal.astro'
         <input
           type="text"
           id="name"
-          name="name"
+          name="İsim"
           required
           class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
         />
@@ -50,7 +40,7 @@ import TextReveal from '@/components/TextReveal.astro'
         <input
           type="text"
           id="company"
-          name="$company"
+          name="Şirket"
           class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
         />
       </div>
@@ -62,7 +52,7 @@ import TextReveal from '@/components/TextReveal.astro'
         <input
           type="tel"
           id="phone"
-          name="$phone"
+          name="Telefon"
           class="p-3 bg-dark-blue border border-steel-blue rounded-md text-white focus:outline-none focus:border-white transition-colors duration-200"
         />
       </div>
